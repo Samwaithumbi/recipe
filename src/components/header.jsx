@@ -10,26 +10,32 @@ const Header = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
-    if (!searchedMeal) return;
+    if (!searchedMeal.trim()) {
+      setError("Please enter a valid meal name.");
+      return;
+    }
+  
     setLoading(true);
     setError(false);
-
+    
     try {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchedMeal}`
       );
+  
       if (response.data.meals) {
         setMeals(response.data.meals);
       } else {
         setMeals([]);
+        setError("No meals found. Please try a different search.");
       }
     } catch {
-      setError(true);
+      setError("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);
     }
   };
-
+  
   return (
     <div className="mt-4 px-4">
       <div className="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-lg shadow-md">

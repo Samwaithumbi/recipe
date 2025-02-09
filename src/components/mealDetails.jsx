@@ -64,16 +64,21 @@ const MealDetails = () => {
       </ul>
 
       <h2 className="text-xl font-semibold mt-4">Instructions</h2>
-      <ol className="list-decimal pl-5 mt-2 text-left">
-        {meal.strInstructions
-          .split(". ")
-          .filter((step) => step.trim() !== "")
-          .map((step, index) => (
-            <li key={index} className="text-gray-700 mb-2">
-              {step}.
-            </li>
-          ))}
-      </ol>
+{meal.strInstructions ? (
+  <ol className="list-decimal pl-5 mt-2 text-left">
+    {meal.strInstructions
+      .split(". ")
+      .filter((step) => step.trim() !== "")
+      .map((step, index) => (
+        <li key={index} className="text-gray-700 mb-2">
+          {step}.
+        </li>
+      ))}
+  </ol>
+) : (
+  <p className="text-gray-500">No instructions available.</p>
+)}
+
 
       {meal.strYoutube && (
         <div className="mt-4">
