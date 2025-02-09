@@ -41,7 +41,7 @@ const Header = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-lg shadow-md">
         <div className="flex items-center space-x-3 mb-4 sm:mb-0">
           <img src="/chef.jpg" alt="Chef Hat" className="w-14 h-14 object-cover rounded-full" />
-          <h1 className="text-4xl font-bold text-gray-800">Recipe</h1>
+          <h1 className="text-4xl font-bold text-gray-800">Worldly Bites</h1>
         </div>
 
         <div className="flex items-center space-x-2 w-full sm:w-auto">
